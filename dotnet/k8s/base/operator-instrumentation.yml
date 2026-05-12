@@ -1,11 +1,10 @@
 apiVersion: newrelic.com/v1alpha2
 kind: Instrumentation
 metadata:
-  name: newrelic-java
-  namespace: springboot
+  name: newrelic-dotnet
 spec:
-  java:
-    image: newrelic/newrelic-java-init:latest
+  dotnet:
+    image: newrelic/newrelic-dotnet-init:latest
   env:
     - name: NEW_RELIC_LICENSE_KEY
       valueFrom:

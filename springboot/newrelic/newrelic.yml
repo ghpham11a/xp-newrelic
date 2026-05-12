@@ -16,6 +16,15 @@ common: &default_settings
   distributed_tracing:
     enabled: true
 
+  # Custom attributes (request.body / response.body from BodyCaptureFilter)
+  custom_insights_events:
+    enabled: true
+    max_samples_stored: 30000
+
+  attributes:
+    enabled: true
+    include: request.body,response.body
+
   # Transaction tracer settings
   transaction_tracer:
     enabled: true

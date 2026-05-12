@@ -46,6 +46,13 @@
 			<version>0.10.0</version>
 		</dependency>
 
+		<!-- New Relic API: custom attributes and instrumentation -->
+		<dependency>
+			<groupId>com.newrelic.agent.java</groupId>
+			<artifactId>newrelic-api</artifactId>
+			<version>8.22.0</version>
+		</dependency>
+
 		<!-- Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

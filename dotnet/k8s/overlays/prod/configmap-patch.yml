@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dotnet-config
+data:
+  NEW_RELIC_APP_NAME: "dotnet-api"
+  NEW_RELIC_LOG_LEVEL: "warn"

@@ -2,13 +2,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: springboot-config
-  namespace: springboot
 data:
   NEW_RELIC_APP_NAME: "springboot"
   NEW_RELIC_LOG_LEVEL: "info"
   NEW_RELIC_DISTRIBUTED_TRACING_ENABLED: "true"
   NEW_RELIC_APPLICATION_LOGGING_ENABLED: "true"
   NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED: "true"
-  # Micrometer config
   MANAGEMENT_NEWRELIC_METRICS_EXPORT_STEP: "30s"
   MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "health,info,metrics"

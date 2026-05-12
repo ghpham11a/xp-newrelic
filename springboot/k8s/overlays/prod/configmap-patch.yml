@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: springboot-config
+data:
+  NEW_RELIC_APP_NAME: "springboot"
+  NEW_RELIC_LOG_LEVEL: "warn"
