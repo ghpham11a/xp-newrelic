@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHealthChecks();
 
 // Register ItemService as a singleton (in-memory store)
 builder.Services.AddSingleton<IItemService, ItemService>();
@@ -53,5 +54,6 @@ app.UseHttpsRedirection();
 app.UseMiddleware<NewRelicBodyCaptureMiddleware>();
 
 app.MapControllers();
+app.MapHealthChecks("/health");
 
 app.Run();

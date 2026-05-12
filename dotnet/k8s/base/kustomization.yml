@@ -6,4 +6,3 @@ resources:
   - deployment.yml
   - service.yml
   - configmap.yml
-  - operator-instrumentation.yml

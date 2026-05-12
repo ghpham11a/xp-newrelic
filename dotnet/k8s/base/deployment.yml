@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
         - name: dotnet-api
-          image: your-registry/xp-newrelic-dotnet:latest
+          image: xp-newrelic-dotnet:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
               name: http
