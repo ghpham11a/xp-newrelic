@@ -1,0 +1,69 @@
+# New Relic Java Agent Configuration
+# See: https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/
+
+common: &default_settings
+  # Your New Relic Ingest License Key
+  license_key: <%= ENV["NEW_RELIC_LICENSE_KEY"] || "YOUR_NEW_RELIC_LICENSE_KEY" %>
+
+  # Application name as it will appear in the New Relic UI
+  app_name: springboot
+
+  # Logging configuration
+  log_level: info
+  log_file_name: newrelic_agent.log
+
+  # Enable distributed tracing
+  distributed_tracing:
+    enabled: true
+
+  # Transaction tracer settings
+  transaction_tracer:
+    enabled: true
+    transaction_threshold: apdex_f
+    record_sql: obfuscated
+    log_sql: false
+    stack_trace_threshold: 0.5
+    explain_enabled: true
+    explain_threshold: 0.5
+
+  # Error collector
+  error_collector:
+    enabled: true
+    ignore_classes: []
+    ignore_status_codes: 404
+
+  # Thread profiler
+  thread_profiler:
+    enabled: true
+
+  # Browser monitoring (auto-inject JS agent)
+  browser_monitoring:
+    auto_instrument: true
+
+  # Application logging (forward logs to New Relic)
+  application_logging:
+    enabled: true
+    forwarding:
+      enabled: true
+      max_samples_stored: 10000
+    metrics:
+      enabled: true
+    local_decorating:
+      enabled: false
+
+  # JFR (Java Flight Recorder) integration
+  jfr:
+    enabled: true
+
+# Environment-specific overrides
+development:
+  <<: *default_settings
+  app_name: springboot (Development)
+
+staging:
+  <<: *default_settings
+  app_name: springboot (Staging)
+
+production:
+  <<: *default_settings
+  app_name: springboot
