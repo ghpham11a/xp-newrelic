@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
         - name: springboot
-          image: your-registry/xp-newrelic-springboot:latest
+          image: xp-newrelic-springboot:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
               name: http
@@ -26,13 +27,8 @@ spec:
             - name: NEW_RELIC_API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: newrelic-secret
-                  key: license-key
-            - name: NEW_RELIC_ACCOUNT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: newrelic-secret
-                  key: account-id
+                  name: newrelic-key-secret
+                  key: new_relic_license_key
           envFrom:
             - configMapRef:
                 name: springboot-config

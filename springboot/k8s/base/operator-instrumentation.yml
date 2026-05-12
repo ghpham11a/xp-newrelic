@@ -1,13 +1,10 @@
-apiVersion: newrelic.com/v1alpha2
+apiVersion: newrelic.com/v1beta3
 kind: Instrumentation
 metadata:
   name: newrelic-java
+  namespace: default
 spec:
-  java:
+  agent:
+    language: java
     image: newrelic/newrelic-java-init:latest
-  env:
-    - name: NEW_RELIC_LICENSE_KEY
-      valueFrom:
-        secretKeyRef:
-          name: newrelic-secret
-          key: license-key
+  licenseKeySecret: newrelic-key-secret
